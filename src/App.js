@@ -13,24 +13,24 @@ import {
 } from 'react-router-dom';
 
 function App() {
-  return (
-	<Router>
-    	<div className="App">
-			<Sidebar />
+  	return (
+		<Router>
+    		<div className="App">
+				<Sidebar />
 
-			<div className="main-wrapper">
-				<Routes>
-					<Route exact path='/' element={<AboutMe />}></Route>
-					<Route exact path='/portfolio' element={<Portfolio />}></Route>
-					<Route exact path='/resume' element={<Resume />}></Route>
-					<Route exact path='/contact' element={<Contact />}></Route>
-				</Routes>
+				<div className="main-wrapper">
+					<Routes>
+						<Route exact path='/' element={<AboutMe />}></Route>
+						<Route exact path='/portfolio' element={<Portfolio />}></Route>
+						<Route exact path='/resume' element={<Resume />}></Route>
+						<Route exact path='/contact' element={<Contact />}></Route>
+					</Routes>
 
-				<Footer />
-			</div>
-    	</div>
-	</Router>
-  );
+					<Footer />
+				</div>
+    		</div>
+		</Router>
+  	);
 }
 
 export default App;

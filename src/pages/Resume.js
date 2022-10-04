@@ -1,3 +1,5 @@
+import { resume } from '../Data';
+
 import resumeProfile from '../img/resume-profile.jpeg'
 
 function Resume() {
@@ -6,7 +8,7 @@ function Resume() {
 			<section className="cta-section theme-bg-light py-5">
 				<div className="container text-center single-col-max-width">
 					<h2 className="heading mb-3">Online Resume</h2>
-					<a className="btn btn-primary" href="/resume_Jordy_van_der_Poel.pdf" target="_blank">
+					<a className="btn btn-primary" href="/Resume_Jordy van der Poel_EN.pdf" target="_blank">
 						<i className="fas fa-file-pdf mr-2"></i>Download PDF Version
 					</a>
 				</div>
@@ -21,10 +23,9 @@ function Resume() {
 							</div>
 							<div className="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
 								<ul className="list-unstyled mb-0">
-									<li className="mb-2"><i className="fas fa-phone-square fa-fw fa-lg mr-2 "></i><a className="resume-link" href="tel:0610228468">(+31) 6 10 22 84 68</a></li>
-									<li className="mb-2"><i className="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a className="resume-link" href="mailto:jordy@webdevelapper.nl">jordy@webdevelapper.nl</a></li>
-									<li className="mb-2"><i className="fas fa-globe fa-fw fa-lg mr-2"></i><a className="resume-link" href="https://www.jordyvanderpoel.nl/resume">www.jordyvanderpoel.nl</a></li>
-									<li className="mb-0"><i className="fas fa-map-marker-alt fa-fw fa-lg mr-2"></i>Hasselt (ov.)</li>
+									{
+										resume.contact.map(c => <Contact contact={c} /> )
+									}
 								</ul>
 							</div>
 						</div>					
@@ -47,128 +48,15 @@ function Resume() {
 							<div className="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
 								<section className="work-section py-3">
 									<h3 className="text-uppercase resume-section-heading mb-4">Work Experiences</h3>
-									<div className="item mb-3">
-										<div className="item-heading row align-items-center mb-2">
-											<h4 className="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
-												Full-stack developer
-											</h4>
-											<div className="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">
-												<a href="https://dutchdevices.nl" className="link-on-bg" target="_blank" rel="noreferrer">
-													Dutch Devices
-												</a> | 2019 - Present
-											</div>
-										</div>
-										<div className="item-content">
-											<p>
-												<i>Dutch Devices creates innovative solutions using IoT-devices to collect valuable data.</i>
-											</p>
-											<ul className="resume-list">
-												<li>Creating an intuitive Angular portal to visualize data from various IoT-devices.</li>
-												<li>Designing, implementing and maintaining an efficient and scalable database.</li>
-												<li>Development of a RESTful API in PHP, using the CodeIgniter framework.</li>
-												<li>Developing a multi-platform Xamarin.Forms app.</li>
-											</ul>
-										</div>
-									</div>
-									<div className="item mb-3">
-										<div className="item-heading row align-items-center mb-2">
-											<h4 className="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
-												Back-end web developer
-											</h4>
-											<div className="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">
-												<a href="https://mamble.nl" className="link-on-bg" target="_blank" rel="noreferrer">
-													Mamble_easy web
-												</a> | 2016 - Present
-											</div>
-										</div>
-										<div className="item-content">
-											<p>
-												<i>Mamble_easy web is the all-in-one CMS. We design and build your website, you manage its content. Managing your website without technical knowledge, it's a piece of cake.</i>
-											</p>
-											<ul className="resume-list">
-												<li>Implementing plain HTML designs into our PHP-based CMS.</li>
-												<li>Designing and developing a new, simplified underlying structure in PHP, using the CodeIgniter framework.</li>
-											</ul>
-										</div>
-									</div>
+									{
+										resume.work.map(w => <Work work={w} /> )
+									}
 								</section>
 								<section className="project-section py-3">
 									<h3 className="text-uppercase resume-section-heading mb-4">Projects</h3>
-									<div className="item">
-										<div className="item-heading row align-items-center mb-2">
-											<h4 className="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
-												Intranet web application
-											</h4>
-											<div className="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">
-												Strandreddingsbrigade Westerschouwen
-											</div>
-										</div>
-										<div className="item-content">
-											<p>
-												An interactive web application, build to be the central platform for all tools used by the lifeguards, including activity registration, availability indicator and planning tools.
-											</p>
-										</div>
-									</div>
-									<div className="item">
-										<div className="item-heading row align-items-center mb-2">
-											<h4 className="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
-												<a href="https://tripcloud.nl" className="link-on-bg" target="_blank" rel="noreferrer">
-													Work-trip registration application
-												</a>
-											</h4>
-										</div>
-										<div className="item-content">
-											<p>
-												Figuring out your work-related trips at the end of the month can be a challanging task.
-												This web application helps you keeping track of your trips and generates a overview for you.
-											</p>
-											<p>
-												<i><b>Technologies:</b> ReactJS (front-end) and Node.JS (back-end)</i>
-											</p>
-										</div>
-									</div>
-									<div className="item">
-										<div className="item-heading row align-items-center mb-2">
-											<h4 className="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
-												<a href="https://piketdiensten.nl" className="link-on-bg" target="_blank" rel="noreferrer">
-													Availability management application
-												</a>
-											</h4>
-											<div className="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">
-												Fire Department Hasselt
-											</div>
-										</div>
-										<div className="item-content">
-											<p>
-												This web application provides the members of the voluntary fire deptartment the ability to indicate their availability.
-												Using this data, it creates a schedule to ensure the availability of the crew.
-											</p>
-											<p>
-												<i><b>Technologies:</b> HTML5, CSS, Bootstrap (front-end) and PHP CodeIgniter (back-end)</i>
-											</p>
-										</div>
-									</div>
-									<div className="item">
-										<div className="item-heading row align-items-center mb-2">
-											<h4 className="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
-												<a href="https://herkansingssysteem.nl" className="link-on-bg" target="_blank" rel="noreferrer">
-													Resit registration and evalution system
-												</a>
-											</h4>
-											<div className="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">
-												Greijdanus College Zwolle
-											</div>
-										</div>
-										<div className="item-content">
-											<p>
-												A web application for students to register for resit-exams.
-												It gives teachers and supervisors the ability to reject if the student did not comply to the requirements.
-											</p>
-											<p>
-												<i><b>Technologies:</b> AngularJS (front-end) and SlimPHP (back-end)</i>
-											</p>
-										</div>
-									</div>
+									{
+										resume.projects.map(p => <Project project={p} /> )
+									}
 								</section>
 							</div>
 							<aside className="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
@@ -177,51 +65,42 @@ function Resume() {
 									<div className="item">
 										<h4 className="item-title">Technical</h4>
 										<ul className="list-unstyled resume-skills-list">
-											<li className="mb-2">JavaScript | Angular | React</li>
-											<li className="mb-2">PHP | Python</li>
-											<li className="mb-2">Node.js</li>
-											<li className="mb-2">Xamarin</li>
-											<li className="mb-2">MySQL</li>
-											<li className="mb-2">Object-oriented design</li>
-											<li className="mb-2">Design and implement database structures</li>
+											{
+												resume.skills.technical.map(s => <li className="mb-2">{ s }</li>)
+											}
 										</ul>
 									</div>
 									<div className="item">
 										<h4 className="item-title">Professional</h4>
 										<ul className="list-unstyled resume-skills-list">
-											<li className="mb-2">Effective communication</li>
-											<li className="mb-2">Eager to learn</li>
-											<li className="mb-2">Strong problem solver</li>
+											{
+												resume.skills.professional.map(s => <li className="mb-2">{ s }</li>)
+											}
 										</ul>
 									</div>
 								</section>
 								<section className="education-section py-3">
 									<h3 className="text-uppercase resume-section-heading mb-4">Education</h3>
 									<ul className="list-unstyled resume-education-list">
-										<li className="mb-3">
-											<div className="resume-degree font-weight-bold">BSc in Computer Science</div>
-											<div className="resume-degree-org text-muted">Eindhoven University of Technology</div>
-											<div className="resume-degree-time text-muted">2016 - Present</div>
-										</li>
-										<li>
-											<div className="resume-degree font-weight-bold">Atheneum</div>
-											<div className="resume-degree-org text-muted">Greijdanus College Zwolle</div>
-											<div className="resume-degree-time text-muted">2009 - 2016</div>
-										</li>
+										{
+											resume.education.map(e => <Education education={e} />)
+										}
 									</ul>
 								</section>
 								<section className="skills-section py-3">
 									<h3 className="text-uppercase resume-section-heading mb-4">Languages</h3>
 									<ul className="list-unstyled resume-lang-list">
-										<li className="mb-2">Dutch <span className="text-muted">(Native)</span></li>
-										<li>English <span className="text-muted">(Professional)</span></li>
+										{
+											resume.languages.map(l => <li className="mb-2">{l.language} <span className="text-muted">({l.level})</span></li>)
+										}
 									</ul>
 								</section>
 								<section className="skills-section py-3">
 									<h3 className="text-uppercase resume-section-heading mb-4">Interests</h3>
 									<ul className="list-unstyled resume-interests-list mb-0">
-										<li className="mb-2">Lifeguarding</li>
-										<li className="mb-2">Cycling &amp; Mountainbiking</li>
+										{
+											resume.interests.map(i => <li className="mb-2">{i}</li>)
+										}
 									</ul>
 								</section>
 							</aside>
@@ -263,3 +142,108 @@ function Resume() {
 }
 
 export default Resume;
+
+function Contact({contact}) {
+	return (
+		<li className="mb-2">
+			<i className={"fas fa-fw fa-lg mr-2 " + contact.icon}></i>
+			{
+				contact.link ?
+					<a className="resume-link" href={contact.link} target="_BLANK" rel="noreferrer">
+						{ contact.value }
+					</a>
+					:
+					contact.value
+			}
+		</li>
+	);
+}
+
+function Work({work}) {
+	return (
+		<div className="item mb-3">
+			<div className="item-heading row align-items-center mb-2">
+				<h4 className="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
+					{work.title}
+				</h4>
+				<div className="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">
+					{
+						work.link ?
+							<a href={work.link} className="link-on-bg" target="_blank" rel="noreferrer">
+								{work.company}
+							</a>
+							:
+							work.company
+					}
+					&nbsp;|&nbsp;{work.time}
+				</div>
+			</div>
+			<div className="item-content">
+				<p>
+					<i>
+						{work.description}
+					</i>
+				</p>
+				<ul className="resume-list">
+					{
+						work.tasks.map(t => <li>{t}</li>)
+					}
+				</ul>
+			</div>
+		</div>
+	)
+}
+
+function Project({project}) {
+	return (
+		<div className="item">
+			<div className="item-heading row align-items-center mb-2">
+				<h4 className="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
+					{
+						project.link ?
+							<a href={project.link} className="link-on-bg" target="_blank" rel="noreferrer">
+								{project.title}
+							</a>
+							:
+							project.title
+					}
+				</h4>
+				<div className="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">
+					{ project.company }
+				</div>
+			</div>
+			<div className="item-content">
+				<p>
+					{ project.description }
+				</p>
+				{
+					project.technologies ?
+						<p>
+							<i>
+								<b>Technologies:</b>
+								{ project.technologies }
+							</i>
+						</p>
+						:
+						''
+				}
+			</div>
+		</div>
+	);
+}
+
+function Education({education}) {
+	return (
+		<li className="mb-3">
+			<div className="resume-degree font-weight-bold">
+				{education.title}
+			</div>
+			<div className="resume-degree-org text-muted">
+				{education.institute}
+			</div>
+			<div className="resume-degree-time text-muted">
+				{education.time}
+			</div>
+		</li>
+	);
+}
