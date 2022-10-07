@@ -1,7 +1,5 @@
-import {
-	useLocation,
-	Link
-} from 'react-router-dom'
+import React from 'react';
+import { useLocation, Link } from 'react-router-dom'
 
 function MenuItem({path, icon, title, i18n}) {
 	const location = useLocation();

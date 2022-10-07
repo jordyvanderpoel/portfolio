@@ -1,3 +1,6 @@
+
+import React from 'react';
+
 function Contact({i18n}) {
 	return (
 		<div>

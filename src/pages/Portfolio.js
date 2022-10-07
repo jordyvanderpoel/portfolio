@@ -1,9 +1,9 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Project from '../components/portfolio/Project';
 
 import { projects } from '../Data';
-
-import { Link } from 'react-router-dom';
 
 function Portfolio({i18n}) {
 	return (

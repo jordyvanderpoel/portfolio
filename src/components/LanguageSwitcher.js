@@ -1,3 +1,5 @@
+import React from 'react';
+
 function LanguageSwitcher({i18n}) {
 	const languages = [
 		{language: 'Nederlands', short: 'nl', flag: 'nl'},

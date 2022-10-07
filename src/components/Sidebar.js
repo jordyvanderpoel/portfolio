@@ -1,8 +1,11 @@
-import profileImage from '../img/profile.jpeg';
+import React from 'react';
+
+import { Link } from 'react-router-dom'
+
 import Menu from './Menu';
 import LanguageSwitcher from './LanguageSwitcher';
 
-import { Link } from 'react-router-dom'
+import profileImage from '../img/profile.jpeg';
 
 function Sidebar({i18n, darkmode, setDarkmode}) {
 	return (

@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Footer({i18n}) {
 	return (
 		<footer className="footer text-center py-4">

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { resume } from '../Data';
 
 import resumeProfile from '../img/resume-profile.jpeg'

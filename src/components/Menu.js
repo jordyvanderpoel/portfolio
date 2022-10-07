@@ -1,3 +1,5 @@
+import React from 'react';
+
 import MenuItem from './MenuItem';
 
 function Menu({i18n}) {

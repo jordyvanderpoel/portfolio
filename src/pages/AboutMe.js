@@ -1,10 +1,13 @@
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Project from '../components/portfolio/Project';
 import Technology from '../components/about-me/Technology';
 
-import profileImage from '../img/profile-lg.jpeg';
 import { technologies, projects } from '../Data';
 
-import { Link } from 'react-router-dom';
+import profileImage from '../img/profile-lg.jpeg';
 
 function AboutMe({i18n}) {
 	return (

@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Technology({text, icons}) {
 	return (
 		<div className="item col-6 col-lg-3">

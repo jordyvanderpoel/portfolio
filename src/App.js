@@ -1,5 +1,9 @@
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
+import Cookies from "js-cookie";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import AboutMe from './pages/AboutMe';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
@@ -9,14 +13,6 @@ import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 
 import * as translations from './i18n';
-
-import Cookies from "js-cookie";
-import { useState } from 'react';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route
-} from 'react-router-dom';
 
 function App() {
 	const [language, setLanguage] = useState(Cookies.get('language') ?? 'en');
@@ -47,9 +43,9 @@ function App() {
 		document.body.classList.add('dark-mode');
 	}
 
-  	return (
+	return (
 		<Router>
-    		<div className="App">
+			<div className="App">
 				<Sidebar i18n={i18n} darkmode={darkmode} setDarkmode={switchDarkmode} />
 
 				<div className="main-wrapper">
@@ -62,9 +58,9 @@ function App() {
 
 					<Footer i18n={i18n} />
 				</div>
-    		</div>
+			</div>
 		</Router>
-  	);
+	);
 }
 
 export default App;
