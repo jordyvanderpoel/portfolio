@@ -4,7 +4,7 @@ function Technology({text, icons}) {
 			<div className="item-inner">
 				<div className="item-icon">
 					{
-						icons.map(i => <i className={"fab mr-2 " + i}></i>)
+						icons.map((icon, i) => <i className={"fab mr-2 " + icon} key={i}></i>)
 					}
 				</div>
 				<h3 className="item-title">

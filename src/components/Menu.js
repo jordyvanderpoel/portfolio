@@ -1,12 +1,11 @@
 import MenuItem from './MenuItem';
 
-function Menu() {
+function Menu({i18n}) {
 	return (
 		<ul className="navbar-nav flex-column text-left">
-			<MenuItem path="/" icon="fa-user" title="About Me" />
-			<MenuItem path="/portfolio" icon="fa-laptop-code" title="Portfolio" />
-			<MenuItem path="/resume" icon="fa-file-alt" title="Resume" />
-			<MenuItem path="/contact" icon="fa-envelope-open-text" title="Contact" />
+			<MenuItem path="/" icon="fa-user" title="aboutMe" i18n={i18n} />
+			<MenuItem path="/portfolio" icon="fa-laptop-code" title="portfolio"  i18n={i18n} />
+			<MenuItem path="/resume" icon="fa-file-alt" title="resume"  i18n={i18n} />
 		</ul>
 	);
 }

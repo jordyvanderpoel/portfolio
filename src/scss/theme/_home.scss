@@ -166,6 +166,7 @@
 	&:hover {
 		
 		.link-mask {
+			cursor: pointer;
 			visibility: visible;
 			background: rgba($theme-text-color-primary, 0.4);
 		}

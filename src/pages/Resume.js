@@ -2,14 +2,15 @@ import { resume } from '../Data';
 
 import resumeProfile from '../img/resume-profile.jpeg'
 
-function Resume() {
+function Resume({i18n}) {
 	return (
 		<div>
 			<section className="cta-section theme-bg-light py-5">
 				<div className="container text-center single-col-max-width">
 					<h2 className="heading mb-3">Online Resume</h2>
-					<a className="btn btn-primary" href="/Resume_Jordy van der Poel_EN.pdf" target="_blank">
-						<i className="fas fa-file-pdf mr-2"></i>Download PDF Version
+					<a className="btn btn-primary" href={"/Resume_Jordy van der Poel_" + i18n.language.toUpperCase() + ".pdf"} target="_blank" rel="noreferrer">
+						<i className="fas fa-file-pdf mr-2"></i>	
+						{i18n.translation('downloadPDF')}
 					</a>
 				</div>
 			</section>
@@ -18,13 +19,17 @@ function Resume() {
 					<div className="resume-header">
 						<div className="row align-items-center">
 							<div className="resume-title col-12 col-md-6 col-lg-8 col-xl-9">
-								<h2 className="resume-name mb-0 text-uppercase">Jordy van der Poel</h2>
-								<div className="resume-tagline mb-3 mb-md-0">Full-stack web developer</div>
+								<h2 className="resume-name mb-0 text-uppercase">
+									{i18n.translation('name')}
+								</h2>
+								<div className="resume-tagline mb-3 mb-md-0">
+									{i18n.translation('title')}
+								</div>
 							</div>
 							<div className="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
 								<ul className="list-unstyled mb-0">
 									{
-										resume.contact.map(c => <Contact contact={c} /> )
+										resume.contact.map((contact, i) => <Contact contact={contact} key={i} /> )
 									}
 								</ul>
 							</div>
@@ -36,8 +41,9 @@ function Resume() {
 							<img className="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded-circle mx-auto" src={resumeProfile} alt="This is me" />
 							<div className="media-body text-left">
 								<p className="mb-0">
-									Results-driven computer science student with a passion for helping others.
-									5+ years of experience in full-stack web development and excited to learn new strategies and technologies.
+									{i18n.translation('resumeSummary1')}
+									<br />
+									{i18n.translation('resumeSummary2')}
 								</p>
 							</div>
 						</div>
@@ -47,59 +53,75 @@ function Resume() {
 						<div className="row">
 							<div className="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
 								<section className="work-section py-3">
-									<h3 className="text-uppercase resume-section-heading mb-4">Work Experiences</h3>
+									<h3 className="text-uppercase resume-section-heading mb-4">
+										{i18n.translation('workExperiences')}
+									</h3>
 									{
-										resume.work.map(w => <Work work={w} /> )
+										resume.work.map((work, i) => <Work work={work} i18n={i18n} key={i} /> )
 									}
 								</section>
 								<section className="project-section py-3">
-									<h3 className="text-uppercase resume-section-heading mb-4">Projects</h3>
+									<h3 className="text-uppercase resume-section-heading mb-4">
+										{i18n.translation('projects')}
+									</h3>
 									{
-										resume.projects.map(p => <Project project={p} /> )
+										resume.projects.map((project, i) => <Project project={project} i18n={i18n} key={i} /> )
 									}
 								</section>
 							</div>
 							<aside className="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
 								<section className="skills-section py-3">
-									<h3 className="text-uppercase resume-section-heading mb-4">Skills</h3>
+									<h3 className="text-uppercase resume-section-heading mb-4">
+										{i18n.translation('skills')}
+									</h3>
 									<div className="item">
-										<h4 className="item-title">Technical</h4>
+										<h4 className="item-title">
+											{i18n.translation('technical')}
+										</h4>
 										<ul className="list-unstyled resume-skills-list">
 											{
-												resume.skills.technical.map(s => <li className="mb-2">{ s }</li>)
+												resume.skills.technical[i18n.language].map((skill, i) => <li className="mb-2" key={i}>{ skill }</li>)
 											}
 										</ul>
 									</div>
 									<div className="item">
-										<h4 className="item-title">Professional</h4>
+										<h4 className="item-title">
+											{i18n.translation('professional')}
+										</h4>
 										<ul className="list-unstyled resume-skills-list">
 											{
-												resume.skills.professional.map(s => <li className="mb-2">{ s }</li>)
+												resume.skills.professional[i18n.language].map((skill, i) => <li className="mb-2" key={i}>{ skill }</li>)
 											}
 										</ul>
 									</div>
 								</section>
 								<section className="education-section py-3">
-									<h3 className="text-uppercase resume-section-heading mb-4">Education</h3>
+									<h3 className="text-uppercase resume-section-heading mb-4">
+										{i18n.translation('education')}
+									</h3>
 									<ul className="list-unstyled resume-education-list">
 										{
-											resume.education.map(e => <Education education={e} />)
+											resume.education.map((education, i) => <Education education={education} i18n={i18n} key={i} />)
 										}
 									</ul>
 								</section>
 								<section className="skills-section py-3">
-									<h3 className="text-uppercase resume-section-heading mb-4">Languages</h3>
+									<h3 className="text-uppercase resume-section-heading mb-4">
+										{i18n.translation('languages')}
+									</h3>
 									<ul className="list-unstyled resume-lang-list">
 										{
-											resume.languages.map(l => <li className="mb-2">{l.language} <span className="text-muted">({l.level})</span></li>)
+											resume.languages[i18n.language].map((language, i) => <li className="mb-2" key={i}>{language.language} <span className="text-muted">({language.level})</span></li>)
 										}
 									</ul>
 								</section>
 								<section className="skills-section py-3">
-									<h3 className="text-uppercase resume-section-heading mb-4">Interests</h3>
+									<h3 className="text-uppercase resume-section-heading mb-4">
+										{i18n.translation('interests')}
+									</h3>
 									<ul className="list-unstyled resume-interests-list mb-0">
 										{
-											resume.interests.map(i => <li className="mb-2">{i}</li>)
+											resume.interests[i18n.language].map((interest, i) => <li className="mb-2" key={i}>{ interest }</li>)
 										}
 									</ul>
 								</section>
@@ -159,7 +181,7 @@ function Contact({contact}) {
 	);
 }
 
-function Work({work}) {
+function Work({work, i18n}) {
 	return (
 		<div className="item mb-3">
 			<div className="item-heading row align-items-center mb-2">
@@ -175,18 +197,18 @@ function Work({work}) {
 							:
 							work.company
 					}
-					&nbsp;|&nbsp;{work.time}
+					&nbsp;|&nbsp;{work.time[i18n.language]}
 				</div>
 			</div>
 			<div className="item-content">
 				<p>
 					<i>
-						{work.description}
+						{work.description[i18n.language]}
 					</i>
 				</p>
 				<ul className="resume-list">
 					{
-						work.tasks.map(t => <li>{t}</li>)
+						work.tasks[i18n.language].map((task, i) => <li key={i}>{task}</li>)
 					}
 				</ul>
 			</div>
@@ -194,7 +216,7 @@ function Work({work}) {
 	)
 }
 
-function Project({project}) {
+function Project({project, i18n}) {
 	return (
 		<div className="item">
 			<div className="item-heading row align-items-center mb-2">
@@ -202,26 +224,26 @@ function Project({project}) {
 					{
 						project.link ?
 							<a href={project.link} className="link-on-bg" target="_blank" rel="noreferrer">
-								{project.title}
+								{project.title[i18n.language]}
 							</a>
 							:
-							project.title
+							project.title[i18n.language]
 					}
 				</h4>
 				<div className="item-meta col-12 col-md-6 col-lg-4 text-muted text-left text-md-right">
-					{ project.company }
+					{ project.company[i18n.language] }
 				</div>
 			</div>
 			<div className="item-content">
 				<p>
-					{ project.description }
+					{ project.description[i18n.language] }
 				</p>
 				{
-					project.technologies ?
+					project.technologies[i18n.language] ?
 						<p>
 							<i>
-								<b>Technologies:</b>
-								{ project.technologies }
+								<b>{i18n.translation('technologies')}:</b>&nbsp;
+								{ project.technologies[i18n.language] }
 							</i>
 						</p>
 						:
@@ -232,7 +254,7 @@ function Project({project}) {
 	);
 }
 
-function Education({education}) {
+function Education({education, i18n}) {
 	return (
 		<li className="mb-3">
 			<div className="resume-degree font-weight-bold">
@@ -242,7 +264,7 @@ function Education({education}) {
 				{education.institute}
 			</div>
 			<div className="resume-degree-time text-muted">
-				{education.time}
+				{education.time[i18n.language]}
 			</div>
 		</li>
 	);

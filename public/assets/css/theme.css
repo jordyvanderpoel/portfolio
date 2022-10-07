@@ -10062,6 +10062,7 @@ hr {
 }
 
 .project-card:hover .link-mask {
+  cursor: pointer;
   visibility: visible;
   background: rgba(41, 41, 41, 0.4);
 }
